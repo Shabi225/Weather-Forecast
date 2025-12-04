@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<mata name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Forecast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/style.css">
+
+</head>
+<body>
+<h1>Weather Forecast</h1>
+<div class="card">
+    <form action="/submit" method="POST">
+  <label for="Location">Enter your Location:</label>
+  <input type="text" id="Location" name="loc">
+
+  <label for="day">For:</label>
+  <select name="day" id="day" required>
+    <option value="1">Today</option>
+    <option value="2">Tomorrow</option>
+    <option value="7">7 Days (Including Today)</option>
+  </select>
+
+  <button id="submit" type="submit">Submit</button>
+</form>
+</div>
+
+<div class="forecastCard">
+<% if (content && content.daily && noOfDays==1) { %>
+  <div class="sec">
+  <p>Date of checking: <%= content.daily.time[0] %></p>
+  <p>Time: <%= content.current.time.split('T')[1].slice(0,5) %></p>
+  <p>Sunrise: <%= content.daily.sunrise[0].split('T')[1].slice(0,5) %></p>
+  <p>Sunset: <%= content.daily.sunset[0].split('T')[1].slice(0,5) %></p>
+  <p>Sunshine Duration: <%=(content.daily.sunshine_duration[0]/3600).toFixed(2) %> hours</p>
+  <p>Max temp today: <%= content.daily.temperature_2m_max[0] %> °C</p>
+  <p>Min temp today: <%= content.daily.temperature_2m_min[0] %> °C</p>
+  <p>Max precipitation Probability: <%= content.daily.precipitation_probability_max[0] %> %</p></div>
+<% } else if (content && content.daily && noOfDays==2) { %>
+  <div class="sec">
+  <p>Tomorrow: <%= content.daily.time[1] %></p>
+  <p>Date of checking: <%= content.daily.time[0] %></p>
+  <p>Sunrise: <%= content.daily.sunrise[1].split('T')[1].slice(0,5) %></p>
+  <p>Sunset: <%= content.daily.sunset[1].split('T')[1].slice(0,5) %></p>
+  <p>Sunshine Duration: <%=(content.daily.sunshine_duration[0]/3600).toFixed(2) %> hours</p>
+  <p>Max temp tomorrow: <%= content.daily.temperature_2m_max[1] %> °C</p>
+  <p>Min temp tomorrow: <%= content.daily.temperature_2m_min[1] %> °C</p>
+  <p>Max precipitation Probability: <%= content.daily.precipitation_probability_max[1] %> %</p></div>
+<% } else if (content && content.daily && noOfDays==7) { %>
+  <div class="sects">
+  <p>Date of checking: <%= content.daily.time[0] %></p>
+  <p>Max temp today: <%= content.daily.temperature_2m_max[0] %> °C</p>
+  <p>Min temp today: <%= content.daily.temperature_2m_min[0] %> °C</p>
+  <p>Max precipitation Probability: <%= content.daily.precipitation_probability_max[0] %> %</p></div>
+  <div class="sects">
+  <p>Tomorrow: <%= content.daily.time[1] %></p>
+  <p>Max temp tomorrow: <%= content.daily.temperature_2m_max[1] %> °C</p>
+  <p>Min temp tomorrow: <%= content.daily.temperature_2m_min[1] %> °C</p>
+  <p>Max precipitation Probability: <%= content.daily.precipitation_probability_max[1] %> %</p></div> 
+  <div class="sects">
+  <p>Date: <%= content.daily.time[2] %></p>
+  <p>Max temp: <%= content.daily.temperature_2m_max[2] %> °C</p>
+  <p>Min temp: <%= content.daily.temperature_2m_min[2] %> °C</p>
+  <p>Max precipitation Probability: <%= content.daily.precipitation_probability_max[2] %> %</p></div>
+  <div class="sects">
+  <p>Date: <%= content.daily.time[3] %></p>
+  <p>Max temp: <%= content.daily.temperature_2m_max[3] %> °C</p>
+  <p>Min temp: <%= content.daily.temperature_2m_min[3] %> °C</p>
+  <p>Max precipitation Probability: <%= content.daily.precipitation_probability_max[3] %> %</p></div>
+  <div class="sects">
+  <p>Date: <%= content.daily.time[4] %></p>
+  <p>Max temp: <%= content.daily.temperature_2m_max[4] %> °C</p>
+  <p>Min temp: <%= content.daily.temperature_2m_min[4] %> °C</p>
+  <p>Max precipitation Probability: <%= content.daily.precipitation_probability_max[4] %> %</p></div>
+  <div class="sects">
+  <p>Date: <%= content.daily.time[5] %></p>
+  <p>Max temp: <%= content.daily.temperature_2m_max[5] %> °C</p>
+  <p>Min temp: <%= content.daily.temperature_2m_min[5] %> °C</p>
+  <p>Max precipitation Probability: <%= content.daily.precipitation_probability_max[5] %> %</p></div>
+  <div class="sects">
+  <p>Date: <%= content.daily.time[6] %></p>
+  <p>Max temp: <%= content.daily.temperature_2m_max[6] %> °C</p>
+  <p>Min temp: <%= content.daily.temperature_2m_min[6] %> °C</p>
+  <p>Max precipitation Probability: <%= content.daily.precipitation_probability_max[6] %> %</p></div>
+<% } else { %>
+  <p><%= content %></p> <!-- error or empty message -->
+<% } %>
+</div>
+</body>
+</html>

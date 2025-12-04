@@ -1,0 +1,132 @@
+
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  background-image: url("../images/stunning-natural-landscape.jpg");
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat;  
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: white;
+  font-family: "Titan One", cursive;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  margin-left: 90px;
+}
+label{
+  margin-top: 15px;
+  display: block;
+  color: white;
+  font-family: "Titan One", cursive;
+  margin-bottom: 5px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  margin-top:30px; 
+}
+
+
+input[type="text"],select[id="day"] {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      font-family: "Noto Sans",sans-serif;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+button[id="submit"] {
+      display: block;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      justify-content: center;
+      margin-top: 10px;
+      font-family: "Titan One", cursive;
+      align-self:center;
+      background-color: transparent;
+      border-color: white;
+      border-width: 15px;
+}
+#submit:hover{
+  background-color: black;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 300px;
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  font-family: "Gloria Hallelujah", cursive;
+  margin-bottom: 20px;
+}
+
+p{
+  font-weight: 300;
+  font-family: "Balsamiq Sans", sans-serif;
+  color:white;
+  margin-bottom: 0px;
+  margin-left: 15px;
+  font-size: 1rem;
+}
+
+.sects{
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 270px;
+  height: 150px;
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  margin: 5px;
+  border: 5px solid white;
+  background-color: rgba(128, 128, 128, 0.6);
+}
+
+.forecastCard{
+  width: 600 px;
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 180px 180px 180px 180px;
+}
+
+.sec{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 300px;
+  padding: 3px;
+  position: relative;
+  border-radius: 10px;
+  margin: 5px;
+  border: 5px solid white;
+  background-color: rgba(128, 128, 128, 0.6);
+  margin-left: 50px;
+}
